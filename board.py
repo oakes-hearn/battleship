@@ -17,20 +17,20 @@ class BoardManager:
         # Ensure not overlapping with placed ships
         if hor:
             for x in range(x_coor, x_coor+length+1):
-                if self.board[y_coor][x] == 'x':
+                if self.board[y_coor][x] == 'o':
                     return 'Overlaps with existing ships'
         else:
             for y in range(y_coor, y_coor+length+1):
-                if self.board[y][x_coor] == 'x':
+                if self.board[y][x_coor] == 'o':
                     return 'Overlaps with existing ships'
         
         # Place ship vertically or horizontally based on bool hor
         if hor:
             for x in range(x_coor, x_coor+length+1):
-                self.board[y_coor][x] = 'x'
+                self.board[y_coor][x] = 'o'
         else:
             for y in range(y_coor, y_coor+length+1):
-                self.board[y][x_coor] = 'x'
+                self.board[y][x_coor] = 'o'
         return 'Ship placed'
 
 board = BoardManager(10)
