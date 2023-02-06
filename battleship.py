@@ -19,25 +19,22 @@ def user_selects_game_mode():
     2: 'Battleship against human'
     }
 
-    try:
-        # user selects game mode, if invalid entry rerun prompt)
-        game_mode_selection = input("""\nPlease select a game mode:\n(1) Play against AI\n(2) Play against human (COMING SOON)\n""")
-        if int(game_mode_selection) == 1:
-            return 'ai'
-        elif int(game_mode_selection) == 2:
-            return 'human'
-        else:
-            clear()
-            print("Please select a valid number entry!")
-            user_selects_game_mode()
-    except KeyboardInterrupt:
-        # user manually exited game
-        sys.exit(0)
-    except:
-        # invalid user input (random text, unsupported number, etc) so re-run game selection prompt
+    # user selects game mode, if invalid entry rerun prompt)
+    game_mode_selection = input("""\nPlease select a game mode:\n(1) Play against AI\n(2) Play against human (COMING SOON)\n(3) Quit\n""")
+
+    # handle bad input (unsupported number, random text, etc) by re-running prompt
+    if not game_mode_selection.isdigit():
         clear()
         print("Please select a valid number entry!")
         user_selects_game_mode()
+
+    if int(game_mode_selection) == 1:
+        return 'ai'
+    elif int(game_mode_selection) == 2:
+        return 'human'
+    elif int(game_mode_selection) == 3:
+        clear()
+        sys.exit("Goodbye!")
 
 
 if __name__ == "__main__":
