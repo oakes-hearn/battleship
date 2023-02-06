@@ -1,5 +1,3 @@
-from pandas import DataFrame
-
 class BoardManager:
     def __init__(self, board_size):
         self.board = []
@@ -32,12 +30,3 @@ class BoardManager:
             for y in range(y_coor, y_coor+length+1):
                 self.board[y][x_coor] = 'o'
         return 'Ship placed'
-
-board = BoardManager(10)
-print(board.add_ship(1, 0, 3, hor=True))
-print(board.add_ship(1,2, 5, hor=True))
-print(board.add_ship(8, 3, 3, hor=False))
-print(board.add_ship(2, 4, 2, hor=False))
-print(board.add_ship(4, 5, 4, hor=False))
-print(board.add_ship(1, 0, 3, hor=False))
-print(DataFrame(board.board))
