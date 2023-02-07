@@ -44,10 +44,6 @@ if __name__ == "__main__":
 
     clear()
     board = board.BoardManager(10)
-    print(board.add_ship(1, 0, 3, hor=True))
-    print(board.add_ship(1, 2, 5, hor=True))
-    print(board.add_ship(8, 3, 3, hor=False))
-    print(board.add_ship(2, 4, 2, hor=False))
-    print(board.add_ship(4, 5, 4, hor=False))
-    print(board.add_ship(1, 0, 3, hor=False))
-    print(DataFrame(board.board))
+    for i in range(5, -1, -1):
+        board.add_ship(i)
+        print(DataFrame(board.board))
